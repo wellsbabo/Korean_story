@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/home"
+        android:enabled="true"
+        android:title="Home"/>
+    <item
+        android:id="@+id/collection"
+        android:enabled="true"
+        android:title="컬렉션"/>
+    <item
+        android:id="@+id/people"
+        android:enabled="true"
+        android:title="인물보기"/>
+</menu>
