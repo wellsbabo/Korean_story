@@ -8,12 +8,36 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 public class Menu3Fragment extends Fragment {
 
-    @Nullable
+    View view;
+
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
-        return inflater.inflate(R.layout.fragment_menu3,container,false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+        //return inflater.inflate(R.layout.fragment_menu3,container,false);
+        view = inflater.inflate(R.layout.fragment_menu3,container,false);
+        nameFragment wordfragment = new nameFragment();
+        FragmentManager fm = getFragmentManager();
+        fm.beginTransaction().add(R.id.fragment_container,wordfragment).commit();
+
+        return view;
     }
+
+//    public void onWordSelected(int position) {
+//           //portrait 모드 체크
+//            contentFragment newFragment = new contentFragment();
+//            Bundle args = new Bundle();
+//            args.putInt("position", position);
+//            newFragment.setArguments(args);
+//
+//            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+//            transaction.replace(R.id.fragment_container, newFragment);
+//            transaction.addToBackStack(null);   //기존의 프레그먼트는 백스택에 넣음
+//            transaction.commit();
+//
+//    }
+
 }
