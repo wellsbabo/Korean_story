@@ -1,5 +1,6 @@
 package com.example.korean_story;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +19,9 @@ public class Menu1Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater,  ViewGroup container, Bundle savedInstanceState){
 
         View view = inflater.inflate(R.layout.fragment_menu1,container,false);
+
+        //Intent intent = getIntent();
+
 
         TextView name = view.findViewById(R.id.name);
         TextView summary = view.findViewById(R.id.summary);

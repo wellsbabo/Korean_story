@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1070379884477",
+    "firebase_url": "https://korean-story.firebaseio.com",
+    "project_id": "korean-story",
+    "storage_bucket": "korean-story.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1070379884477:android:dd3a68cf604f7f8a8f3cd4",
+        "android_client_info": {
+          "package_name": "com.example.korean_story"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1070379884477-et0t3mkmn3ibvf040hjhp2t5dtsb25b0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.korean_story",
+            "certificate_hash": "812457e5aaa78cbe3bc9a13c7f75ab6b98eb37fd"
+          }
+        },
+        {
+          "client_id": "1070379884477-jp33sq45v3jgivb3c28hul9pm8ksl304.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvmpoioDmGdGAT_qsT1Qax8xHeDvVnzn0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1070379884477-jp33sq45v3jgivb3c28hul9pm8ksl304.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

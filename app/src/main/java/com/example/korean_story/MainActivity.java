@@ -4,14 +4,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
-import android.widget.ListAdapter;
-import android.widget.ListView;
+import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +26,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if(FirebaseAuth.getInstance().getCurrentUser() == null){
+            startSignUpActivity();
+        }
+
+        //findViewById(R.id.logoutButton).setOnClickListener(onClickListener);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         //첫 화면 지정
@@ -50,10 +56,34 @@ public class MainActivity extends AppCompatActivity {
                         transaction.replace(R.id.frame_layout,menu3Fragment).commitAllowingStateLoss();
                         break;
                     }
+                    case R.id.logoutButton: {
+                        findViewById(R.id.logoutButton).setOnClickListener(onClickListener);
+                        break;
+                    }
                 }
                 return false;
             }
         });
 
     }
+
+
+    View.OnClickListener onClickListener = new View.OnClickListener(){
+        @Override
+        public void onClick(View v){
+            switch (v.getId()){
+                case R.id.logoutButton:
+                    FirebaseAuth.getInstance().signOut();
+                    startSignUpActivity();
+                    break;
+            }
+        }
+    };
+
+    private void startSignUpActivity(){
+        Intent intent = new Intent(this,SignUpActivity.class);
+        startActivity(intent);
+    }
+
+
 }
