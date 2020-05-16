@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/home"
         android:enabled="true"
-        android:title="홈"/>
-    <item
-        android:id="@+id/collection"
-        android:enabled="true"
-        android:title="Collection"/>
+        android:title="Home"/>
     <item
         android:id="@+id/people"
         android:enabled="true"
         android:title="인물보기"/>
     <item
-        android:id="@+id/logoutButton"
+        android:id="@+id/collection"
         android:enabled="true"
-        android:title="로그아웃"/>
+        android:title="마이페이지"/>
 </menu>

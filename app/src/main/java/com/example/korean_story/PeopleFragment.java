@@ -5,20 +5,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
-public class Menu3Fragment extends Fragment {
+public class PeopleFragment extends Fragment {
 
     View view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        //return inflater.inflate(R.layout.fragment_menu3,container,false);
-        view = inflater.inflate(R.layout.fragment_menu3,container,false);
+        //return inflater.inflate(R.layout.fragment_mypage,container,false);
+        view = inflater.inflate(R.layout.fragment_people,container,false);
         nameFragment wordfragment = new nameFragment();
         FragmentManager fm = getFragmentManager();
         fm.beginTransaction().add(R.id.fragment_container,wordfragment).commit();
