@@ -48,13 +48,10 @@ public class nameFragment extends Fragment{
         Cursor cursor = db.rawQuery("select title,content from people "+ "order by _id",null);
 
         while(cursor.moveToNext()) {
-            //System.out.println(cursor.getString(0));
             adapter.add(cursor.getString(0));
         }
         db.close();
         //
-
-
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -76,7 +73,5 @@ public class nameFragment extends Fragment{
 
         return view;
     }
-
-
 
 }

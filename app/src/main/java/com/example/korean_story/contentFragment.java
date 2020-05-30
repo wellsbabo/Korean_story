@@ -1,5 +1,7 @@
 package com.example.korean_story;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +12,10 @@ import androidx.fragment.app.Fragment;
 
 public class contentFragment extends Fragment {
 
+    DBHelper helper;
+    SQLiteDatabase db;
+
+    Cursor cursor;
     public contentFragment() {
         // Required empty public constructor
     }
@@ -17,7 +23,10 @@ public class contentFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
+        helper = new DBHelper(getActivity());
+        db = helper.getWritableDatabase();
+        cursor = db.rawQuery("select title,content from people "+ "order by _id",null);
         return inflater.inflate(R.layout.fragmnet_content, container, false);
     }
 
@@ -34,14 +43,21 @@ public class contentFragment extends Fragment {
 
     public void updateDefinitionView(int position){
 
+        String name_text = "";
+        String content_text = "";
+
+        for(int i=0; i<=position; i++){
+            cursor.moveToNext();
+        }
+
+        name_text = cursor.getString(0);
+        content_text = cursor.getString(1);
+
         TextView name = (TextView)getView().findViewById(R.id.name);
         TextView summary = (TextView)getView().findViewById(R.id.summary);
-        //System.out.println(Data.names[0]);
-        name.setText(Data.names[position]);
-        summary.setText(Data.summary[position]);
 
-        //TextView def = (TextView)getView().findViewById(R.id.content);
-        //def.setText(Data.summary[position]);
+        name.setText(name_text);
+        summary.setText(content_text);
     }
 
 }

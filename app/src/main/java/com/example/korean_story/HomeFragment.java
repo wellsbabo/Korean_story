@@ -1,5 +1,7 @@
 package com.example.korean_story;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,26 +13,36 @@ import androidx.fragment.app.Fragment;
 public class HomeFragment extends Fragment {
 
     int randomNum;
-    int from = 0;
-    int to = 6; //데이터의 마지막 인덱스
+    int count = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater,  ViewGroup container, Bundle savedInstanceState){
 
+
+        String name_text = "";
+        String content_text = "";
+
         View view = inflater.inflate(R.layout.fragment_home,container,false);
+        DBHelper helper = new DBHelper(getActivity());
+        SQLiteDatabase db = helper.getWritableDatabase();
 
-        //Intent intent = getIntent();
-        randomNum = (int)(Math.random()*(Math.abs(to-from)+1)) + Math.min(from,to);
+        Cursor cursor = db.rawQuery("select title,content from people "+ "order by _id",null);
+        count = cursor.getCount();
 
-        //System.out.println(randomNum);
+        randomNum = (int)(Math.random()*count);
+
+        for(int i=0; i<=randomNum; i++){
+            cursor.moveToNext();
+        }
+        name_text = cursor.getString(0);
+        content_text = cursor.getString(1);
 
         TextView name = view.findViewById(R.id.name);
         TextView summary = view.findViewById(R.id.summary);
-        //System.out.println(Data.names[0]);
-        name.setText(Data.names[randomNum]);
-        summary.setText(Data.summary[randomNum]);
 
-        //return inflater.inflate(R.layout.fragment_home,container,false);
+        name.setText(name_text);
+        summary.setText(content_text);
+
         return view;
     }
 }
