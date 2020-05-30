@@ -4,13 +4,20 @@
     <item
         android:id="@+id/home"
         android:enabled="true"
-        android:title="Home"/>
+        android:title="Home"
+        android:checked="true"
+        app:showAsAction="always"
+        />
     <item
         android:id="@+id/people"
         android:enabled="true"
-        android:title="인물보기"/>
+        android:title="인물보기"
+        app:showAsAction="always"
+        />
     <item
         android:id="@+id/collection"
         android:enabled="true"
-        android:title="마이페이지"/>
+        android:title="마이페이지"
+        app:showAsAction="always"
+        />
 </menu>

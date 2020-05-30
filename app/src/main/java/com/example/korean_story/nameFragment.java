@@ -1,5 +1,7 @@
 package com.example.korean_story;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,11 +10,17 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+
 public class nameFragment extends Fragment{
+
+    Content content = SplashActivity.content;
+
     public nameFragment() {
         // Required empty public constructor
     }
@@ -20,28 +28,33 @@ public class nameFragment extends Fragment{
     public interface onWordSelectedListener{
         public void onWordSelected(int position);
     }
-//
-    //onWordSelectedListener mWordSelListener;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         View view = inflater.inflate(R.layout.fragment_name,container,false);
 
-        ArrayAdapter adapter = new ArrayAdapter(getActivity(),android.R.layout.simple_list_item_1,Data.names);
 
+
+        final ArrayAdapter adapter = new ArrayAdapter(getActivity(),android.R.layout.simple_list_item_1,android.R.id.text1);
         ListView listView = view.findViewById(R.id.word_list);
-        //listView.setAdapter(new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,Data.names));
+
         listView.setAdapter(adapter);
 
-        //mWordSelListener = (nameFragment)getActivity();
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() { //listView의 아이템이 클릭되면, onWordSelected로 넘어와서 실행됨
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                mWordSelListener.onWordSelected(position);
-//            }
-//        });
+
+        DBHelper helper = new DBHelper(getActivity());
+        SQLiteDatabase db = helper.getWritableDatabase();
+        Cursor cursor = db.rawQuery("select title,content from people "+ "order by _id",null);
+
+        while(cursor.moveToNext()) {
+            //System.out.println(cursor.getString(0));
+            adapter.add(cursor.getString(0));
+        }
+        db.close();
+        //
+
+
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -58,11 +71,12 @@ public class nameFragment extends Fragment{
                 transaction.commit();
 
 
-                //System.out.println(position);
-
             }
         });
 
         return view;
     }
+
+
+
 }

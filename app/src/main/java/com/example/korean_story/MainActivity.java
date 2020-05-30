@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         //첫 화면 지정
+
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frame_layout,homeFragment).commitAllowingStateLoss();
 
@@ -44,14 +45,17 @@ public class MainActivity extends AppCompatActivity {
                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                 switch (menuItem.getItemId()){
                     case R.id.home:{
+                        menuItem.setChecked(true);
                         transaction.replace(R.id.frame_layout,homeFragment).commitAllowingStateLoss();
                         break;
                     }
                     case R.id.collection:{
+                        menuItem.setChecked(true);
                         transaction.replace(R.id.frame_layout,mypageFragment).commitAllowingStateLoss();
                         break;
                     }
                     case R.id.people:{
+                        menuItem.setChecked(true);
                         transaction.replace(R.id.frame_layout,peopleFragment).commitAllowingStateLoss();
                         break;
                     }
@@ -61,19 +65,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-
-
-//    View.OnClickListener onClickListener = new View.OnClickListener(){
-//        @Override
-//        public void onClick(View v){
-//            switch (v.getId()){
-//                case R.id.logoutButton:
-//                    FirebaseAuth.getInstance().signOut();
-//                    startSignUpActivity();
-//                    break;
-//            }
-//        }
-//    };
 
     private void startSignUpActivity(){
         Intent intent = new Intent(this,SignUpActivity.class);
