@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-public class PeopleFragment extends Fragment {
+public class PeopleFragment extends Fragment {  //
 
     View view;
 

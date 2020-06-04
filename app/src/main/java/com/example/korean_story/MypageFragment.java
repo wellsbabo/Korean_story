@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class MypageFragment extends Fragment {
+public class MypageFragment extends Fragment {  //로그아웃 및 나만의 컬렉션
 
     Button logout;
 

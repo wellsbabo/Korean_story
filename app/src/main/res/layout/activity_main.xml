@@ -20,7 +20,7 @@
     <FrameLayout
         android:id="@+id/frame_layout"
         android:layout_width="match_parent"
-        android:layout_height="598dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

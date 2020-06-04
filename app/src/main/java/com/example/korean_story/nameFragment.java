@@ -17,7 +17,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 
-public class nameFragment extends Fragment{
+public class nameFragment extends Fragment{ //인물들 목록 보여주는 페이지
 
     Content content = SplashActivity.content;
 
@@ -66,7 +66,6 @@ public class nameFragment extends Fragment{
                 transaction.replace(R.id.fragment_container, newFragment);
                 transaction.addToBackStack(null);   //기존의 프레그먼트는 백스택에 넣음
                 transaction.commit();
-
 
             }
         });
