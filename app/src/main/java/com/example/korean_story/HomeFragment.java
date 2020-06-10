@@ -49,30 +49,5 @@ public class HomeFragment extends Fragment {    //첫화면에 랜덤으로 인�
         return view;
     }
 
-//    @Override
-//    public void onStart(){
-//        super.onStart();
-//        commentButton = getView().findViewById(R.id.commentButton);
-//        commentButton.setOnClickListener(onClickListener);
-//    }
 
-//    View.OnClickListener onClickListener = new View.OnClickListener(){
-//        @Override
-//        public void onClick(View v){
-//            switch (v.getId()){
-//                case R.id.commentButton:
-//                    commentFragment newFragment = new commentFragment();
-//                    Bundle args = new Bundle();
-//                    args.putInt("position", randomNum);
-//                    newFragment.setArguments(args);
-////
-//                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
-//                    transaction.replace(R.id.fragment_container, newFragment);
-////                    transaction.addToBackStack(null);   //기존의 프레그먼트는 백스택에 넣음
-////                    transaction.commit();
-//                    System.out.println(randomNum);
-//                    break;
-//            }
-//        }
-//    };
 }
