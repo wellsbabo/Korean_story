@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,12 +21,17 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class commentFragment extends Fragment {
 
     Button inputButton;
     EditText commentEdit;
     ListView commentList;
     int pos;
+
+
 
     public commentFragment() {
         // Required empty public constructor
@@ -111,5 +117,4 @@ public class commentFragment extends Fragment {
             }
         }
     };
-
 }

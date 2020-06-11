@@ -6,13 +6,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
-public class HomeFragment extends Fragment {    //첫화면에 랜덤으로 인물보여주는 페이지
+public class MainHomeFragment extends Fragment {    //첫화면에 랜덤으로 인물보여주는 페이지
 
     int randomNum;
     int count = 0;
@@ -25,7 +23,7 @@ public class HomeFragment extends Fragment {    //첫화면에 랜덤으로 인�
         String name_text = "";
         String content_text = "";
 
-        View view = inflater.inflate(R.layout.fragment_home,container,false);
+        View view = inflater.inflate(R.layout.main_fragment_home,container,false);
         DBHelper helper = new DBHelper(getActivity());
         SQLiteDatabase db = helper.getWritableDatabase();
 

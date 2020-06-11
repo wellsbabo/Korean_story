@@ -5,7 +5,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,13 +18,24 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.iid.FirebaseInstanceId;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MypageFragment extends Fragment {  //로그아웃 및 나만의 컬렉션
 
     Button logout;
     Button makeCollection;
     private FirebaseAuth mAuth;
+    List<String> collection_list = new ArrayList();
+
+    public MypageFragment(){}
 
     @Override
     public View onCreateView( LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -41,11 +55,56 @@ public class MypageFragment extends Fragment {  //로그아웃 및 나만의 컬
         //String test = FirebaseInstanceId.getInstance();
         System.out.println(uid);
 
+        final ArrayAdapter adapter = new ArrayAdapter(getActivity(),android.R.layout.simple_list_item_1,android.R.id.text1);
+        ListView listView = view.findViewById(R.id.collection_list);
+
+        listView.setAdapter(adapter);
+
+        DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+        database.child("User").child(uid).child("collection").addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                //ChatMsg chatMsg = dataSnapshot.getValue(ChatMsg.class);
+                Collection collection = dataSnapshot.getValue(Collection.class);
+                collection_list.add(collection.getContent());
+                //System.out.println(collection.getContent());
+                adapter.add(collection.getName());
+            }
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+            }
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+            }
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
 
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                collectionFragment newFragment = new collectionFragment();
+                Bundle args = new Bundle();
+                args.putString("position", collection_list.get(position));
+                newFragment.setArguments(args);
+                //System.out.println(collection_list.get(position));
+
+                //System.out.println(position);
+                //FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragment_myhome_container, newFragment);
+                transaction.addToBackStack(null);   //기존의 프레그먼트는 백스택에 넣음
+                transaction.commit();
+            }
+        });
         return view;
     }
-
 
     View.OnClickListener onClickListener = new View.OnClickListener(){
         @Override

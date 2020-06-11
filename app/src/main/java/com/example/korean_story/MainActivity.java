@@ -8,7 +8,6 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.WindowManager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -18,9 +17,10 @@ public class MainActivity extends AppCompatActivity {
     //FrameLayout에 각 메뉴의 Fragment를 바꿔 줌
     private FragmentManager fragmentManager = getSupportFragmentManager();
     //4개의 메뉴에 들어갈 Fragment들
-    private HomeFragment homeFragment = new HomeFragment();
-    private MypageFragment mypageFragment = new MypageFragment();
-    private PeopleFragment peopleFragment = new PeopleFragment();
+    private MainHomeFragment homeFragment = new MainHomeFragment();
+    //private MypageFragment mypageFragment = new MypageFragment();
+    private MainMypage mypageFragment = new MainMypage();
+    private MainPeopleFragment peopleFragment = new MainPeopleFragment();
     //getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
 

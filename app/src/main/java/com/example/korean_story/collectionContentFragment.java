@@ -12,9 +12,7 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.google.firebase.auth.FirebaseAuth;
-
-public class contentFragment extends Fragment { //선택한 인물 보여주는 페이지
+public class collectionContentFragment extends Fragment { //선택한 인물 보여주는 페이지
 
     DBHelper helper;
     SQLiteDatabase db;
@@ -22,7 +20,7 @@ public class contentFragment extends Fragment { //선택한 인물 보여주는 
     int pos;
 
     Cursor cursor;
-    public contentFragment() {
+    public collectionContentFragment() {
         // Required empty public constructor
     }
 
@@ -36,7 +34,7 @@ public class contentFragment extends Fragment { //선택한 인물 보여주는 
         cursor = db.rawQuery("select title,content from people "+ "order by _id",null);
 
 
-        return inflater.inflate(R.layout.fragmnet_content, container, false);
+        return inflater.inflate(R.layout.fragmnet_collection_content, container, false);
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener(){
@@ -44,13 +42,14 @@ public class contentFragment extends Fragment { //선택한 인물 보여주는 
         public void onClick(View v){
             switch (v.getId()){
                 case R.id.commentButton:
+                    //System.out.println("fuck");
                     commentFragment newFragment = new commentFragment();
                     Bundle args = new Bundle();
                     args.putInt("position", pos);
                     newFragment.setArguments(args);
 
                     FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                    transaction.replace(R.id.fragment_container, newFragment);
+                    transaction.replace(R.id.fragment_myhome_container, newFragment);
                     transaction.addToBackStack(null);   //기존의 프레그먼트는 백스택에 넣음
                     transaction.commit();
                     break;

@@ -14,6 +14,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUpActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -76,11 +78,11 @@ public class SignUpActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     FirebaseUser user = mAuth.getCurrentUser();
-
-
-
-
-
+                                    //
+                                    String UID = mAuth.getUid();
+                                    DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+                                    database.child("User").child(UID).push().setValue("collection");
+                                    //ab
                                     startToast("회원가입에 성공하였습니다.");
                                     //성공 UI 로직
                                 } else {

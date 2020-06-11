@@ -6,13 +6,13 @@
 
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/collection_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
         android:layout_weight="1"
-        android:text="Name" />
+        android:ems="10"
+        android:hint="컬렉션 이름을 정해주세요."
+        android:inputType="textPersonName" />
 
     <ListView
         android:id="@+id/content_list"
