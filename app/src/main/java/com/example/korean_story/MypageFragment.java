@@ -32,6 +32,7 @@ public class MypageFragment extends Fragment {  //로그아웃 및 나만의 컬
 
     Button logout;
     Button makeCollection;
+    Button sendOpinionButton;
     private FirebaseAuth mAuth;
     List<String> collection_list = new ArrayList();
 
@@ -48,6 +49,9 @@ public class MypageFragment extends Fragment {  //로그아웃 및 나만의 컬
 
         makeCollection = (Button)view.findViewById(R.id.makeCollectionButton);
         makeCollection.setOnClickListener(onClickListener);
+
+        sendOpinionButton = (Button)view.findViewById(R.id.sendOpinionButton);
+        sendOpinionButton.setOnClickListener(onClickListener);
 
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -118,6 +122,9 @@ public class MypageFragment extends Fragment {  //로그아웃 및 나만의 컬
                     startMakeCollectionActivity();
                     //transaction.replace(R.id.frame_layout,peopleFragment).commitAllowingStateLoss();
                     break;
+                case R.id.sendOpinionButton:
+                    startSendOpinionActivity();
+                    break;
             }
         }
     };
@@ -129,6 +136,11 @@ public class MypageFragment extends Fragment {  //로그아웃 및 나만의 컬
 
     private void startMakeCollectionActivity(){
         Intent intent = new Intent(getActivity(),makeCollectionActivity.class);
+        startActivity(intent);
+    }
+
+    private void startSendOpinionActivity(){
+        Intent intent = new Intent(getActivity(),sendOpinionActivity.class);
         startActivity(intent);
     }
 }

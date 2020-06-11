@@ -17,7 +17,9 @@
 
         <activity android:name=".SignUpActivity">
         </activity>
-
+        <activity android:name=".sendOpinionActivity"
+            android:windowSoftInputMode="adjustResize">
+        </activity>
         <activity android:name=".makeCollectionActivity">
         </activity>
         <activity android:name=".LoginActivity">

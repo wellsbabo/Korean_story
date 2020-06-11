@@ -10,10 +10,17 @@
         android:text="로그아웃" />
 
     <Button
+        android:id="@+id/sendOpinionButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" 의견 보내기" />
+
+    <Button
         android:id="@+id/makeCollectionButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="컬렉션 만들기" />
+
 
     <TextView
         android:id="@+id/textView2"
