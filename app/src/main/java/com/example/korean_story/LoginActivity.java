@@ -27,8 +27,8 @@ public class LoginActivity extends AppCompatActivity {
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 
-        findViewById(R.id.signUpButton).setOnClickListener(onClickListener);
-
+        findViewById(R.id.loginButton).setOnClickListener(onClickListener);
+        findViewById(R.id.gotoSignUp).setOnClickListener(onClickListener);
     }
 
     @Override
@@ -43,8 +43,11 @@ public class LoginActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             switch(v.getId()){
-                case R.id.signUpButton:
+                case R.id.loginButton:
                     signUp();
+                    break;
+                case R.id.gotoSignUp:
+                    startSignupActivity();
                     break;
             }
         }
@@ -84,6 +87,11 @@ public class LoginActivity extends AppCompatActivity {
     private void startMainActivity(){
         Intent intent = new Intent(this,MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+
+    private void startSignupActivity(){
+        Intent intent = new Intent(this,SignUpActivity.class);
         startActivity(intent);
     }
 

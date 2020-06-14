@@ -116,7 +116,7 @@ public class MypageFragment extends Fragment {  //로그아웃 및 나만의 컬
             switch (v.getId()){
                 case R.id.logoutButton:
                     FirebaseAuth.getInstance().signOut();
-                    startSignUpActivity();
+                    startLoginActivity();
                     break;
                 case R.id.makeCollectionButton:
                     startMakeCollectionActivity();
@@ -129,8 +129,8 @@ public class MypageFragment extends Fragment {  //로그아웃 및 나만의 컬
         }
     };
 
-    private void startSignUpActivity(){
-        Intent intent = new Intent(getActivity(),SignUpActivity.class);
+    private void startLoginActivity(){
+        Intent intent = new Intent(getActivity(),LoginActivity.class);
         startActivity(intent);
     }
 

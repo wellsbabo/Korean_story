@@ -30,7 +30,7 @@ public class SignUpActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         findViewById(R.id.signUpButton).setOnClickListener(onClickListener);
-        findViewById(R.id.gotoLoginButton).setOnClickListener(onClickListener);
+        //findViewById(R.id.gotoLoginButton).setOnClickListener(onClickListener);
 
     }
 
@@ -57,9 +57,6 @@ public class SignUpActivity extends AppCompatActivity {
                 case R.id.signUpButton:
                     signUp();
                     break;
-                case R.id.gotoLoginButton:
-                    startLoginActivity();
-                    break;
             }
         }
     };
@@ -84,6 +81,7 @@ public class SignUpActivity extends AppCompatActivity {
                                     database.child("User").child(UID).push().setValue("collection");
                                     //ab
                                     startToast("회원가입에 성공하였습니다.");
+                                    startLoginActivity();
                                     //성공 UI 로직
                                 } else {
                                     // If sign in fails, display a message to the user.

@@ -71,7 +71,6 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 content = dataSnapshot.getValue(Content.class);
-
                 db.execSQL("INSERT INTO " + tableName + " (title, content)  Values ('" + content.getTitle() + "', '" + content.getContent() + "');");
             }
 

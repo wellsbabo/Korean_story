@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         if(FirebaseAuth.getInstance().getCurrentUser() == null){
-            startSignUpActivity();
+            startLoginActivity();
         }
 
         //findViewById(R.id.logoutButton).setOnClickListener(onClickListener);
@@ -71,6 +71,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void startSignUpActivity(){
         Intent intent = new Intent(this,SignUpActivity.class);
+        startActivity(intent);
+    }
+
+    private void startLoginActivity(){
+        Intent intent = new Intent(this,LoginActivity.class);
         startActivity(intent);
     }
 

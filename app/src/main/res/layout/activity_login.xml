@@ -39,10 +39,24 @@
             android:inputType="textPassword" />
 
         <Button
-            android:id="@+id/signUpButton"
+            android:id="@+id/loginButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="로그인" />
+            android:text="로그인"
+            android:background="@drawable/btn_shape"
+            android:drawableLeft="@drawable/icon_button"
+            android:paddingRight="260dp"
+            android:textColor="#000000"/>
+        <Button
+            android:id="@+id/gotoSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="회원가입"
+            android:background="@drawable/btn_shape"
+            android:drawableLeft="@drawable/icon_button"
+            android:paddingRight="250dp"
+            android:textColor="#000000"
+            />
     </LinearLayout>
 
 </LinearLayout>

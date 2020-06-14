@@ -26,6 +26,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="click"
-        android:text="운영자에게 전송" />
+        android:text="운영자에게 전송"
+        android:background="@drawable/btn_shape"
+        android:drawableLeft="@drawable/icon_button"
+        android:paddingRight="250dp"
+        android:textColor="#000000"
+        />
 
 </LinearLayout>
