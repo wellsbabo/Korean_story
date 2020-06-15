@@ -113,8 +113,15 @@ public class commentFragment extends Fragment {
                     ChatMsg chatMsg = new ChatMsg(commentEdit.getText().toString());
                     //database.child("message").child(Integer.toString(pos)).child("chat").push().setValue(chatMsg);
                     database.child("message").child(Integer.toString(position)).child("chat").push().setValue(chatMsg);
+                    commentEdit.setText(null);
+                    startToast("댓글이 등록되었습니다");
                     break;
             }
         }
     };
+
+    private void startToast(String msg){
+        Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
+    }
+
 }

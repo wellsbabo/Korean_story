@@ -52,6 +52,10 @@ public class SplashActivity extends AppCompatActivity {
             }
         });
 
+        DBHelper helper = new DBHelper(this);
+        final SQLiteDatabase db = helper.getWritableDatabase();
+        db.execSQL("DELETE FROM people");
+
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -60,11 +64,7 @@ public class SplashActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        },3000);
-
-        DBHelper helper = new DBHelper(this);
-        final SQLiteDatabase db = helper.getWritableDatabase();
-        db.execSQL("DELETE FROM people");
+        },4000);
 
         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
         database.child("message").addChildEventListener(new ChildEventListener() {
@@ -94,8 +94,6 @@ public class SplashActivity extends AppCompatActivity {
 
             }
         });
-
-
     }
 
     @Override

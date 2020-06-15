@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/btn_shape"
         android:drawableLeft="@drawable/icon_button"
-        android:paddingRight="250dp"
+        android:paddingRight="275dp"
         android:text="로그아웃"
         android:textColor="#000000" />
 
@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/btn_shape"
         android:drawableLeft="@drawable/icon_button"
-        android:paddingRight="250dp"
+        android:paddingRight="260dp"
         android:textColor="#000000"
         android:text=" 의견 보내기" />
 
