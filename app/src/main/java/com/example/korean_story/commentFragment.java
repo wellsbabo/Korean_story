@@ -41,8 +41,6 @@ public class commentFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-
-
         return inflater.inflate(R.layout.fragment_comment, container, false);
     }
 
@@ -55,12 +53,10 @@ public class commentFragment extends Fragment {
         Bundle args = getArguments();
         if(args != null){
             pos = args.getInt("position");
-            //updateDefinitionView(pos);
             System.out.println(pos);
             comment(pos);
         }
         inputButton.setOnClickListener(onClickListener);
-        //commentButton.setOnClickListener(onClickListener);
     }
 
     public void comment(int position){
@@ -97,10 +93,6 @@ public class commentFragment extends Fragment {
 
             }
         });
-    }
-
-    public void click(View v){
-
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener(){

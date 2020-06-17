@@ -27,13 +27,11 @@ import java.util.List;
 
 public class makeCollectionActivity extends AppCompatActivity {
 
-    //Button makeCollection;
     ListView listView;
     ArrayAdapter adapter;
     List<Integer> collection = new ArrayList<Integer>();
     private FirebaseAuth mAuth;
     String uid;
-    //String collectionName;
     EditText collectionName;
 
     @Override
@@ -61,8 +59,6 @@ public class makeCollectionActivity extends AppCompatActivity {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         uid = user.getUid();
-        //makeCollection = (Button)findViewById(R.id.makeButton);
-
 
     }
 
@@ -72,10 +68,6 @@ public class makeCollectionActivity extends AppCompatActivity {
         int count = adapter.getCount();
         String collection_name = collectionName.getText().toString();
         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
-
-        //ChatMsg chatMsg = new ChatMsg(commentEdit.getText().toString());
-
-
 
         for(int i=0; i <count; i++){
             if(checkedItems.get(i)){
@@ -92,7 +84,6 @@ public class makeCollectionActivity extends AppCompatActivity {
 
 
         database.child("User").child(uid).child("collection").push().setValue(collection_pack);
-        //database.child("message").child(Integer.toString(position)).child("chat").push().setValue(chatMsg);
         startToast("컬렉션 생성 완료");
         System.out.println(collection_pack);
         listView.clearChoices();

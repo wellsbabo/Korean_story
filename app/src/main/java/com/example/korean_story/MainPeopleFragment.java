@@ -14,7 +14,6 @@ public class MainPeopleFragment extends Fragment {  //
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        //return inflater.inflate(R.layout.fragment_mypage,container,false);
         view = inflater.inflate(R.layout.main_fragment_people,container,false);
         nameFragment wordfragment = new nameFragment();
         FragmentManager fm = getFragmentManager();

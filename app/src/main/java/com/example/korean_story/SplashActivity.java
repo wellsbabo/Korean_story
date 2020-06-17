@@ -48,7 +48,6 @@ public class SplashActivity extends AppCompatActivity {
                 }
                 String token = task.getResult().getToken();
                 Log.d("FCM Log", "FCM 토큰: "+token);
-                //Toast.makeText(MainActivity.this, token,Toast.LENGTH_SHORT).show();
             }
         });
 

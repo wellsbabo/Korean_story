@@ -30,8 +30,6 @@ public class SignUpActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         findViewById(R.id.signUpButton).setOnClickListener(onClickListener);
-        //findViewById(R.id.gotoLoginButton).setOnClickListener(onClickListener);
-
     }
 
     @Override

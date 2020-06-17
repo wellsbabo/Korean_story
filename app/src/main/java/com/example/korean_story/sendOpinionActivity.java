@@ -22,10 +22,8 @@ public class sendOpinionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send_opinion);
 
-        //sendOpinion = findViewById(R.id.sendOpinionButton);
         Opinion = findViewById(R.id.editOpinion);
 
-        //sendOpinion.setOnClickListener(onClickListener);
     }
 
     public void click(View v){

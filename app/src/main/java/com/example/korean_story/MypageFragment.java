@@ -43,7 +43,6 @@ public class MypageFragment extends Fragment {  //로그아웃 및 나만의 컬
 
         View view = inflater.inflate(R.layout.fragment_mypage,container,false);
 
-        //logout = (Button) view.findViewById(R.id.logoutButton)
         logout = (Button)view.findViewById(R.id.logoutButton);
         logout.setOnClickListener(onClickListener);
 
@@ -56,7 +55,6 @@ public class MypageFragment extends Fragment {  //로그아웃 및 나만의 컬
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String uid = user.getUid();
-        //String test = FirebaseInstanceId.getInstance();
         System.out.println(uid);
 
         final ArrayAdapter adapter = new ArrayAdapter(getActivity(),android.R.layout.simple_list_item_1,android.R.id.text1);
@@ -68,10 +66,8 @@ public class MypageFragment extends Fragment {  //로그아웃 및 나만의 컬
         database.child("User").child(uid).child("collection").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                //ChatMsg chatMsg = dataSnapshot.getValue(ChatMsg.class);
                 Collection collection = dataSnapshot.getValue(Collection.class);
                 collection_list.add(collection.getContent());
-                //System.out.println(collection.getContent());
                 adapter.add(collection.getName());
             }
             @Override
@@ -97,10 +93,7 @@ public class MypageFragment extends Fragment {  //로그아웃 및 나만의 컬
                 Bundle args = new Bundle();
                 args.putString("position", collection_list.get(position));
                 newFragment.setArguments(args);
-                //System.out.println(collection_list.get(position));
 
-                //System.out.println(position);
-                //FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.fragment_myhome_container, newFragment);
                 transaction.addToBackStack(null);   //기존의 프레그먼트는 백스택에 넣음
@@ -120,7 +113,6 @@ public class MypageFragment extends Fragment {  //로그아웃 및 나만의 컬
                     break;
                 case R.id.makeCollectionButton:
                     startMakeCollectionActivity();
-                    //transaction.replace(R.id.frame_layout,peopleFragment).commitAllowingStateLoss();
                     break;
                 case R.id.sendOpinionButton:
                     startSendOpinionActivity();

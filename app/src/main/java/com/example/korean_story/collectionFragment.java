@@ -52,10 +52,6 @@ public class collectionFragment extends Fragment {  //컬렉션을 눌렀을 때
             }
         }
         db.close();
-        //
-
-
-        //
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -63,7 +59,6 @@ public class collectionFragment extends Fragment {  //컬렉션을 눌렀을 때
 
                 collectionContentFragment newFragment = new collectionContentFragment();
                 Bundle args = new Bundle();
-                //args.putInt("position", position);
                 args.putInt("position", collection_list_index.get(position));
                 newFragment.setArguments(args);
 
@@ -71,11 +66,8 @@ public class collectionFragment extends Fragment {  //컬렉션을 눌렀을 때
                 transaction.replace(R.id.fragment_myhome_container, newFragment);
                 transaction.addToBackStack(null);   //기존의 프레그먼트는 백스택에 넣음
                 transaction.commit();
-
             }
         });
-
         return view;
     }
-
 }

@@ -33,8 +33,6 @@ public class MainActivity extends AppCompatActivity {
             startLoginActivity();
         }
 
-        //findViewById(R.id.logoutButton).setOnClickListener(onClickListener);
-
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         //첫 화면 지정
 

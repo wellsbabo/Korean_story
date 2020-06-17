@@ -42,7 +42,6 @@ public class collectionContentFragment extends Fragment { //선택한 인물 보
         public void onClick(View v){
             switch (v.getId()){
                 case R.id.commentButton:
-                    //System.out.println("fuck");
                     commentFragment newFragment = new commentFragment();
                     Bundle args = new Bundle();
                     args.putInt("position", pos);

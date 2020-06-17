@@ -48,10 +48,6 @@ public class nameFragment extends Fragment{ //인물들 목록 보여주는 페�
             adapter.add(cursor.getString(0));
         }
         db.close();
-        //
-
-
-        //
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
